@@ -143,7 +143,8 @@ class BBBConv2d(_ConvNd):
 
         weight = self.weight.sample()
 
-        print("Weight: ", weight)
+        print("Weight: ")
+        print(weigt)
         # local reparameterization trick for convolutional layer
 
         conv_qw_mean = F.conv2d(input=input, weight=weight, stride=self.stride, padding=self.padding,
@@ -151,8 +152,10 @@ class BBBConv2d(_ConvNd):
         conv_qw_std = torch.sqrt(1e-8 + F.conv2d(input=input.pow(2), weight=torch.exp(self.log_alpha)*weight.pow(2),
                                                  stride=self.stride, padding=self.padding, dilation=self.dilation, groups=self.groups))
 
-        print("Mean: ",conv_qw_mean)
-        print("STD: ", conv_qw_std)
+        print("Mean: ")
+        print(conv_qw_mean)
+        print("STD: ")
+        print(conv_qw_std)
 
         if cuda:
             conv_qw_mean.cuda()
@@ -168,7 +171,8 @@ class BBBConv2d(_ConvNd):
         if cuda:
             output.cuda()
 
-        print("output: ", output)
+        print("output: ")
+        print(output)
 
         conv_qw = Normal(mu=conv_qw_mean, logvar=conv_qw_std)
 
