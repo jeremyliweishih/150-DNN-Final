@@ -1,4 +1,5 @@
-# 150DNN Final Project
+# 150DNN Final Project: comparison of Bayesian CNNs using BBB, Dropout, and a vanilla CNN.
+Please refer to our projecr proposal for more details.
 
 - [ ] *Regular CNN Implementation*
 - [ ] *BBB CNN Implementation*
