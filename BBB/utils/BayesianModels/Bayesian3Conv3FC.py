@@ -50,5 +50,4 @@ class BBB3Conv3FC(nn.Module):
             else:
                 x = layer(x)
         logits = x
-        print(logits)
         return logits, kl
