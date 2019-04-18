@@ -39,5 +39,5 @@ class ThreeConvThreeFC(nn.Module):
     def forward(self, x):
         x = self.features(x)
         x = self.classifier(x)
-        print('X', x)
+        #print('X', x)
         return x
