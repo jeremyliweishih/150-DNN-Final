@@ -5,8 +5,8 @@ from utils.BBBlayers import FlattenLayer
 def conv_init(m):
     classname = m.__class__.__name__
     if classname.find('Conv') != -1:
-        #nn.init.xavier_uniform(m.weight, gain=np.sqrt(2))
-        nn.init.normal_(m.weight, mean=0, std=1)
+        nn.init.xavier_uniform(m.weight, gain=np.sqrt(2))
+        #nn.init.normal_(m.weight, mean=0, std=1)
         nn.init.constant(m.bias, 0)
 
 class ThreeConvThreeFC(nn.Module):
