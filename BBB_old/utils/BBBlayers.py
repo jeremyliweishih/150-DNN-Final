@@ -27,7 +27,7 @@ class _ConvNd(nn.Module):
     """
 
     def __init__(self, in_channels, out_channels, kernel_size, stride,
-                 padding, dilation, output_padding, groups, p_logvar_init=-3, p_pi=1.0, q_logvar_init=0):
+                 padding, dilation, output_padding, groups, p_logvar_init=0.05, p_pi=1.0, q_logvar_init=0.05):
         super(_ConvNd, self).__init__()
         if in_channels % groups != 0:
             raise ValueError('in_channels must be divisible by groups')
@@ -151,8 +151,8 @@ class BBBConv2d(_ConvNd):
         # print('w_sample: ', w_sample)
         # KL divergence
         qw_logpdf = self.conv_qw.logpdf(w_sample)
-        # print('qw_logpdf:', qw_logpdf)
-        # print('pw_logpdf:', self.pw.logpdf(w_sample))
+        print('qw_logpdf:', qw_logpdf)
+        print('pw_logpdf:', self.pw.logpdf(w_sample))
 
         kl = torch.sum(qw_logpdf - self.pw.logpdf(w_sample))
         return output, kl
