@@ -152,9 +152,11 @@ class BBBConv2d(_ConvNd):
 
         # KL divergence
         qw_logpdf = self.conv_qw.logpdf(w_sample)
+        print("qw_logpdf:", qw_logpdf)
+        print("sample: ", self.pw.logpdf(w_sample))
 
         kl = torch.sum(qw_logpdf - self.pw.logpdf(w_sample))
-
+        print("kl :", kl)
         return output, kl
 
 
