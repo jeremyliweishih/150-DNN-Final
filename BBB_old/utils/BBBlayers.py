@@ -58,7 +58,6 @@ class _ConvNd(nn.Module):
         # ...and output...
         self.conv_qw_mean = Parameter(torch.Tensor(out_channels, in_channels // groups, *kernel_size))
         self.conv_qw_std = Parameter(torch.Tensor(out_channels, in_channels // groups, *kernel_size))
-
         # ...as normal distributions
         self.qw = Normal(mu=self.qw_mean, logvar=self.qw_logvar)
         # self.qb = Normal(mu=self.qb_mean, logvar=self.qb_logvar)
@@ -149,12 +148,12 @@ class BBBConv2d(_ConvNd):
             output.cuda()
 
         w_sample = self.conv_qw.sample()
-        print('w_sample: ', w_sample)
+        # print('w_sample: ', w_sample)
         # KL divergence
         qw_logpdf = self.conv_qw.logpdf(w_sample)
-        print('qw_logpdf:', qw_logpdf)
-        print('pw_logpdf:', self.pw.logpdf(w_sample))
-        
+        # print('qw_logpdf:', qw_logpdf)
+        # print('pw_logpdf:', self.pw.logpdf(w_sample))
+
         kl = torch.sum(qw_logpdf - self.pw.logpdf(w_sample))
         return output, kl
 

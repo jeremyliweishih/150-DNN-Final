@@ -78,6 +78,9 @@ class Normalout(Distribution):
 
     def logpdf(self, x):
         c = - float(0.5 * math.log(2 * math.pi))
+        print("std", self.std)
+        print("mu", self.mu)
+        print("c", c)
         return c - 0.5 * torch.log(self.std) - (x - self.mu).pow(2) / (2 * self.std)
 
     def pdf(self, x):
