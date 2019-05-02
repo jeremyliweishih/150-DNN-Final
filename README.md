@@ -2,11 +2,13 @@
 Please refer to our projecr proposal for more details.
 
 - [x] *Regular CNN Implementation*
-- [ ] *BBB CNN Implementation*
-- [ ] Dropout CNN Implementation
-- [ ] Run Experiments
+- [x] *BBB CNN Implementation*
+- [x] Dropout CNN Implementation
+- [x] Run Experiments
 
 # Issues:
-- [ ] *NaN in BBB source code when sampling: either fix source code, roll-back, or self-implement (https://github.com/kumar-shridhar/PyTorch-BayesianCNN/issues/8)*
+# -[ ] PREDICTED CLASS LABEL FOR MODELS ARE INCORRECT (they should be in alphabetical order of the classes instead of the order defined in the classes array)
+
+- [x] *NaN in BBB source code when sampling: either fix source code, roll-back, or self-implement (https://github.com/kumar-shridhar/PyTorch-BayesianCNN/issues/8)*
 
 *Italics = in progress*
